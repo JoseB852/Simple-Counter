@@ -1,25 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+import Counter from './componentes/Counter';
 
-function App() {
+function App(props) {
+
+  let numero = props.seconds.toString()
+  let resta = 6 - numero.length
+  let elementos = "";
+  for (let i = 1; i <= resta; i++) {
+
+    elementos = "0" + elementos
+
+
+  }
+
+
+  let ciclo = elementos + numero
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className='icono'><i class="fa-regular fa-clock"></i></div>
+      {ciclo.split("").map(function (x) {
+
+
+
+
+        return <Counter segundos={x} />;
+
+      })}
+
+
     </div>
-  );
+  )
 }
+
+
+
 
 export default App;
